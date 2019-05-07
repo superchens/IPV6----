@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>user_lose_total.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+ <style type="text/css">
+	.overview-gap{
+		clear: both;
+		background-color: #ececec;
+		height: 18px;
+	}
+	#test_data{
+		width:100%;
+		height:650px;
+	}
+	#user{
+		width:100%;
+		height:650px;
+	}
+	#user_lose{
+		width:49%;
+		height:650px;
+		display:inline;
+		float:left;
+		border:1px  groove;
+	}
+	#user_method{
+		width:49%;
+		height:650px;
+		display:inline;
+		float:left;
+		border:1px  groove;
+	}
+	</style>
+  </head>
+  
+  <body>
+  	   <div id="test_data">
+       <iframe src="yuce_table.jsp" width=100% height=100% scrolling="no" frameborder="0"> </iframe>
+       </div>
+       <div class="overview-gap"></div>
+       <div id="user">
+         <div id="user_lose">
+         <p align="center"><font  size="6">实际流量趋势</font></p>
+           <img src="../../images/flow.jpg" >
+         </div>
+         <div id="user_method"> 
+           <p align="center"><font  size="6">lstm预测算法</font></p>
+           <img src="../../images/lstm.jpg" >
+         </div>
+       </div>
+  </body>
+</html>

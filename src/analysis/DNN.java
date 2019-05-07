@@ -1,0 +1,84 @@
+package analysis;
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import common.DBConfig;
+
+public class DNN {
+	
+	public static void main(String[] args) throws Exception {
+		lstm cs = new lstm();
+		List<String> c=cs.test();
+		System.out.println(c);
+		
+	}
+
+	public List<String> test() throws SQLException, ClassNotFoundException {
+		String sql = "select * from user1";
+		// MySQL的JDBC URL编写方式：jdbc:mysql://主机名称：连接端口/数据库的名称?参数=值
+		// 避免中文乱码要指定useUnicode和characterEncoding
+		// 执行数据库操作之前要在数据库管理系统上创建一个数据库，名字自己定，
+		// 下面语句之前就要先创建javademo数据库
+		DBConfig cs=new DBConfig();
+		String url =cs.getUrl();
+		Connection conn = DriverManager.getConnection(url);
+		Class.forName("com.mysql.jdbc.Driver");// 动态加载mysql驱动
+		// 一个Connection代表一个数据库连接
+		// Statement里面带有很多方法，比如executeUpdate可以实现插入，更新和删除等
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
+		List<String> list =new ArrayList<String>();
+		while (rs.next()) {
+			list.add(rs.getString(1));
+			list.add(rs.getString(2));
+			list.add(rs.getString(3));
+			list.add(rs.getString(4));
+			list.add(rs.getString(5));
+			list.add(rs.getString(6));
+			list.add(rs.getString(7));
+			list.add(rs.getString(8));
+			list.add(rs.getString(9));
+			list.add(rs.getString(10));
+			list.add(rs.getString(12));
+			list.add(rs.getString(13));
+			list.add(rs.getString(14));
+		}
+		conn.close();
+		return list;
+
+	}
+	 
+	public List<String> DNN_test() throws SQLException, ClassNotFoundException {
+		String sql = "select * from zdy";
+		// MySQL的JDBC URL编写方式：jdbc:mysql://主机名称：连接端口/数据库的名称?参数=值
+		// 避免中文乱码要指定useUnicode和characterEncoding
+		// 执行数据库操作之前要在数据库管理系统上创建一个数据库，名字自己定，
+		// 下面语句之前就要先创建javademo数据库
+		DBConfig cs=new DBConfig();
+		String url =cs.getUrl();
+		Connection conn = DriverManager.getConnection(url);
+		Class.forName("com.mysql.jdbc.Driver");// 动态加载mysql驱动
+		// 一个Connection代表一个数据库连接
+		// Statement里面带有很多方法，比如executeUpdate可以实现插入，更新和删除等
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
+		List<String> list =new ArrayList<String>();
+		while (rs.next()) {
+			list.add(rs.getString(1));
+			list.add(rs.getString(2));
+			list.add(rs.getString(3));
+			list.add(rs.getString(4));
+		}
+		conn.close();
+		return list;
+
+	}
+	
+}
